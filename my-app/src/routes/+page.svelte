@@ -20,6 +20,6 @@
     <p>No data yet</p>
     {:else}
         <h1>{data.baseCurrency} to {data.targetCurrency}</h1>
-        <h2>{exchangeData.data[targetCurrency].value} </h2>
+        <h4>{exchangeData.data[targetCurrency].value} {data.targetCurrency}/{data.baseCurrency}</h4>
     {/if}
 </div>
