@@ -1,12 +1,11 @@
 <script>
     export let data
-    $: error = data.error
     $: exchangeData = data.exchangeData
 
     $: baseCurrency = data.baseCurrency
     $: targetCurrency = data.targetCurrency
 
-    let amount
+    let amount = 100
     $: calculatedAmount =(amount * parseFloat(exchangeData.data[targetCurrency].value)).toFixed(2)
 </script>
 
@@ -24,7 +23,7 @@
     <p>No data yet</p>
     {:else}
         <h1>{data.baseCurrency} to {data.targetCurrency}</h1>
-        <h4>{exchangeData.data[targetCurrency].value} {data.targetCurrency}/{data.baseCurrency}</h4>
+        <h4>{exchangeData.data[targetCurrency].value.toFixed(4)} {data.targetCurrency}/{data.baseCurrency}</h4>
         <h4>{amount}{baseCurrency} converts to {calculatedAmount} {targetCurrency}</h4>
     {/if}
 </div>
